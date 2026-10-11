@@ -1,0 +1,1385 @@
+<!--
+    Variant 01 - Horizontal carousel and textlist
+-->
+
+<theme>
+    <transitions>instant</transitions>
+
+    <include>./navigationsounds.xml</include>
+    <include>./colors.xml</include>
+    <include>./metadata/${system.theme}.xml</include>
+
+    <!-- Per-system band colors and platform info -->
+    <include>./${system.theme}/colors.xml</include>
+    <include>./${system.theme}/systeminfo.xml</include>
+
+    <variables>
+        <systemConsoleImage>./systemimages/${system.theme}.webp</systemConsoleImage>
+        <systemControllerImage>./systems/${system.theme}/images/controller.svg</systemControllerImage>
+        <systemLogo>./${system.theme}/images/logo.svg</systemLogo>
+    </variables>
+   
+---------------------------------------------------------------
+---------------------------------------------------------------
+
+    <view name="system">
+        <carousel name="systemCarousel">
+            <pos>0.235 0.493</pos>
+            <size>1.7 0.05</size>
+            <origin>0.5 0.5</origin>
+            <type>vertical</type>
+            <maxItemCount>1</maxItemCount>
+            <itemSize>0.3 0.1</itemSize>
+            <itemScale>1</itemScale>
+            <itemTransitions>instant</itemTransitions>
+            <imageInterpolation>linear</imageInterpolation>
+            <unfocusedItemOpacity>0</unfocusedItemOpacity>
+            <color>0000FF00</color>
+            <textColor>0000FF00</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.055</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1</lineSpacing>
+            <zIndex>62</zIndex>
+        </carousel>
+
+        <systemstatus name="status">
+            <color>${gamelistDefaultTextColor}</color>
+        </systemstatus>
+
+        <text name="systemNames">
+            <text>${system.fullName}</text>
+            <pos>0.226 0.4931</pos>
+            <size>0.3 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>ffffff</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+
+        <text name="systemNameWithShadow">
+            <text>${system.fullName}</text>
+            <pos>0.23 0.4931</pos>
+            <size>0.3 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>000000</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+         <text name="SystemDesc">
+            <pos>0.712 0.8</pos>
+            <size>0.35 0.21</size>
+            <text>${systemDescription}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+          <text name="SystemReleaseDate">
+            <pos>0.712 0.73</pos>
+            <size>0.35 0.21</size>
+            <text>${systemReleaseDateFormated}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+        <image name="systemlistbackground">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/${Systemlistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>50</zIndex>
+        </image>
+        <image name="systemsplash">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/systemselector.png</path>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebar">
+            <pos>0.45 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>${Systembar}</path>
+            <color>${barcolor}</color>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebarname">
+            <pos>0.45 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/SysBluebarname.png</path>
+            <color>${gamelistRatingColor}</color>
+            <zIndex>52</zIndex>
+        </image>
+        <text name="gameCounter">
+            <pos>0.22 0.62</pos>
+            <size>1 0.056</size>
+            <origin>0.5 0.5</origin>
+            <systemdata>gamecount</systemdata>
+            <fontPath>./core/fonts/Exo2-RegularCondensed.otf</fontPath>
+            <fontSize>0.035</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <color>${systemGameCounterColor}</color>
+            <letterCase>uppercase</letterCase>
+            <zIndex>50</zIndex>
+        </text>
+        <helpsystem name="help">
+            <pos>0.012 0.955</pos>
+            <textColor>${systemHelpColor}</textColor>
+            <iconColor>${systemHelpColor}</iconColor>
+            <textColorDimmed>${systemHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${systemHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down</entries>
+        </helpsystem>              
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="gamelist">
+        <grid name="gamelistGrid">
+            <pos>0.294 0.5315</pos>
+            <size>0.47 0.45</size>
+            <origin>0.5 0.5</origin>
+            <imageType>marquee</imageType>
+            <itemScale>1.118</itemScale>
+            <itemSize>-1 0.081</itemSize>
+            <itemSpacing>0.0108 0.0187</itemSpacing>
+            <fractionalRows>false</fractionalRows>
+            <itemTransitions>instant</itemTransitions>
+            <rowTransitions>instant</rowTransitions>
+            <unfocusedItemOpacity>1</unfocusedItemOpacity>
+            <backgroundImage>${selectedoff}</backgroundImage>
+            <backgroundRelativeScale>1.0</backgroundRelativeScale>
+            <backgroundColor>${selectedoffcolor}</backgroundColor>
+            <selectorImage>${selectedon}</selectorImage>
+            <selectorColor>${selectedoncolor}</selectorColor>
+            <selectorRelativeScale>1.0 0.2</selectorRelativeScale>
+            <selectorLayer>middle</selectorLayer>
+            <textRelativeScale>0.8</textRelativeScale>
+            <textColor>F0F0F0</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.032</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>0</lineSpacing>
+            <zIndex>150</zIndex>
+        </grid>
+
+        <image name="gamelistbg">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/${Gamelistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>61</zIndex>
+        </image>
+        
+        <image name="Splash game">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/gamesplash.png</path>
+            <zIndex>62</zIndex>
+        </image>
+
+        <image name="blue bar">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>${Gamelistbar}</path>
+            <color>${barcolor}</color>
+            <zIndex>62</zIndex>
+        </image>
+    
+        <helpsystem name="help">
+            <pos>0.012 0.955</pos>
+            <textColor>${gamelistHelpColor}</textColor>
+            <iconColor>${gamelistHelpColor}</iconColor>
+            <textColorDimmed>${gamelistHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${gamelistHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down,left/right</entries>
+        </helpsystem>
+
+        <systemstatus name="status">
+            <color>${gamelistDefaultTextColor}</color>
+        </systemstatus>
+    </view>
+
+    <view name="system">
+        <image name="consolegame">
+            <pos>0.02 0.327</pos>
+            <maxSize>0.4 0.28</maxSize>
+            <origin>0 1</origin>
+            <path>./systems/${systemConsoleImage}</path>
+        </image>
+        <image name="controller">
+            <pos>0.717 0.45</pos>
+            <maxSize>0.32 0.32</maxSize>
+            <origin>0.5 0.5</origin>
+            <path>${systemConsoleImage}</path>
+            <zIndex>61</zIndex>
+        </image>     
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="gamelist">
+        <video name="gameVideo">
+            <pos>0.76 0.458</pos>
+            <maxSize>0.32 0.324</maxSize>
+            <origin>0.5 0.5</origin>
+            <imageType>screenshot</imageType>
+            <interpolation>nearest</interpolation>
+            <pillarboxes>false</pillarboxes>
+            <pillarboxThreshold>0.85 0.90</pillarboxThreshold>
+            <delay>1.7</delay>
+            <scrollFadeIn>true</scrollFadeIn>
+            <zIndex>150</zIndex>
+        </video>
+        <image name="consolegame">
+            <pos>0.02 0.17</pos>
+            <maxSize>0.4 0.15</maxSize>
+            <origin>0 1</origin>
+            <path>${systemConsoleImage}</path>
+        </image>
+        <text name="SystemName">
+            <pos>0.76 0.161</pos>
+            <size>0.22 0.21</size>
+            <text>${system.name}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.0545</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistRatingColor}</color>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>150</zIndex>
+        </text>
+
+        <text name="GameName">
+            <pos>0.277 0.844</pos>
+            <size>0.41 0.1</size>
+            <metadata>name</metadata>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.0375</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <color>${gamenamecolor}</color>
+            <zIndex>150</zIndex>
+        </text>
+        <text name="developer">
+            <size>0.14 0.02</size>
+            <fontPath>./core/fonts/Exo2-RegularCondensed.otf</fontPath>
+            <fontSize>0.0195</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <letterCase>uppercase</letterCase>
+            <zIndex>150</zIndex>
+        </text>
+        <text name="description">
+            <pos>0.592 0.7</pos>
+            <size>0.35 0.21</size>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>4.5</containerStartDelay>
+            <containerResetDelay>7</containerResetDelay>
+            <metadata>description</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1.2</lineSpacing>
+            <zIndex>150</zIndex>
+        </text>
+    
+        <text name="developer">
+            <pos>0.76 0.65</pos>
+            <size>0.40 0.1</size>
+            <origin>0.5 0.5</origin>
+            <metadata>developer</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <horizontalAlignment>center</horizontalAlignment>
+            <zIndex>150</zIndex>
+        </text>
+        <gamelistinfo name="gamelistInfo">
+            <pos>0.694 0.23</pos>
+            <size>0.2 0.042</size>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.025</fontSize>
+            <horizontalAlignment>right</horizontalAlignment>
+            <color>${gamelistInfoColor}</color>
+            <zIndex>150</zIndex>
+        </gamelistinfo>
+        <badges name="badges">
+            <pos>0.9445 0.38</pos>
+            <size>0.05 0.235</size>
+            <horizontalAlignment>left</horizontalAlignment>
+            <direction>column</direction>
+            <lines>3</lines>
+            <itemsPerLine>3</itemsPerLine>
+            <slots>collection, folder, favorite, completed, kidgame, broken, controller, altemulator, manual</slots>
+            <controllerPos>0.5 0.572</controllerPos>
+            <controllerSize>0.81</controllerSize>
+            <folderLinkPos>0.54 0.64</folderLinkPos>
+            <folderLinkSize>0.31</folderLinkSize>
+            <itemMargin>-1.0 0.005</itemMargin>
+            <zIndex>150</zIndex>
+        </badges>
+    </view>
+
+--------------------------------------------------------------- 
+---------------------------------------------------------------    
+
+    <aspectRatio name="4:3">
+        <view name="system">
+        <carousel name="systemCarousel">
+            <pos>0.235 0.493</pos>
+            <size>1.7 0.05</size>
+            <origin>0.5 0.5</origin>
+            <type>vertical</type>
+            <maxItemCount>1</maxItemCount>
+            <itemSize>0.3 0.1</itemSize>
+            <itemScale>1</itemScale>
+            <itemTransitions>instant</itemTransitions>
+            <imageInterpolation>linear</imageInterpolation>
+            <unfocusedItemOpacity>0</unfocusedItemOpacity>
+            <color>0000FF00</color>
+            <textColor>0000FF00</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.055</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1</lineSpacing>
+            <zIndex>62</zIndex>
+        </carousel>
+        <text name="systemNames">
+            <text>${system.fullName}</text>
+            <pos>0.226 0.4931</pos>
+            <size>0.37 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>ffffff</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+        <text name="systemNameWithShadow">
+            <text>${system.fullName}</text>
+            <pos>0.23 0.4931</pos>
+            <size>0.37 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>000000</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+         <text name="SystemDesc">
+            <pos>0.712 0.8</pos>
+            <size>0.35 0.21</size>
+            <text>${systemDescription}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+          <text name="SystemReleaseDate">
+            <pos>0.712 0.73</pos>
+            <size>0.35 0.21</size>
+            <text>${systemReleaseDateFormated}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+        <image name="systemlistbackground">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS 4-3/${Systemlistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>50</zIndex>
+        </image>
+        <image name="systemsplash">
+            <pos>0.575 0.5</pos>
+            <size>1.25 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/systemselector.png</path>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebar">
+            <pos>0.457 0.45</pos>
+            <size>1 0.85</size>
+            <origin>0.5 0.5</origin>
+            <path>${Systembar}</path>
+            <color>${barcolor}</color>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebarname">
+            <pos>0.457 0.45</pos>
+            <size>1 0.85</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/SysBluebarname.png</path>
+            <color>${gamelistRatingColor}</color>
+            <zIndex>52</zIndex>
+        </image>
+        <text name="gameCounter">
+            <pos>0.22 0.62</pos>
+            <size>1 0.056</size>
+            <origin>0.5 0.5</origin>
+            <systemdata>gamecount</systemdata>
+            <fontPath>./core/fonts/Exo2-RegularCondensed.otf</fontPath>
+            <fontSize>0.035</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <color>${systemGameCounterColor}</color>
+            <letterCase>uppercase</letterCase>
+            <zIndex>50</zIndex>
+        </text>
+        <helpsystem name="help">
+            <pos>0.012 0.955</pos>
+            <textColor>${systemHelpColor}</textColor>
+            <iconColor>${systemHelpColor}</iconColor>
+            <textColorDimmed>${systemHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${systemHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down</entries>
+        </helpsystem>              
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="gamelist">
+        <grid name="gamelistGrid">
+            <pos>0.328 0.51</pos>
+            <size>0.42 0.49</size>
+            <origin>0.5 0.5</origin>
+            <imageType>marquee</imageType>
+            <itemScale>1.118</itemScale>
+            <itemSize>-1 0.081</itemSize>
+            <itemSpacing>0.0145 0.0187</itemSpacing>
+            <fractionalRows>false</fractionalRows>
+            <itemTransitions>instant</itemTransitions>
+            <rowTransitions>instant</rowTransitions>
+            <unfocusedItemOpacity>1</unfocusedItemOpacity>
+            <backgroundImage>${selectedoff}</backgroundImage>
+            <backgroundRelativeScale>1.0</backgroundRelativeScale>
+            <backgroundColor>${selectedoffcolor}</backgroundColor>
+            <selectorImage>${selectedon}</selectorImage>
+            <selectorColor>${selectedoncolor}</selectorColor>
+            <selectorRelativeScale>1</selectorRelativeScale>
+            <selectorLayer>middle</selectorLayer>
+            <textRelativeScale>0.8</textRelativeScale>
+            <textColor>F0F0F0</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.017</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>0</lineSpacing>
+            <zIndex>150</zIndex>
+        </grid>
+
+        <image name="gamelistbg">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS 4-3/${Gamelistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>61</zIndex>
+        </image>
+        
+        <image name="Splash game">
+            <pos>0.52 0.45</pos>
+            <size>1 0.8</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/gamesplash.png</path>
+            <zIndex>62</zIndex>
+        </image>
+
+        <image name="blue bar">
+            <pos>0.5 0.467</pos>
+            <size>1 0.9</size>
+            <origin>0.5 0.5</origin>
+            <path>${Gamelistbar}</path>
+            <color>${barcolor}</color>
+            <zIndex>62</zIndex>
+        </image>
+    
+        <helpsystem name="help">
+            <pos>0.012 0.955</pos>
+            <textColor>${gamelistHelpColor}</textColor>
+            <iconColor>${gamelistHelpColor}</iconColor>
+            <textColorDimmed>${gamelistHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${gamelistHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down,left/right</entries>
+        </helpsystem>
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="system">
+        <image name="consolegame">
+            <pos>0.02 0.327</pos>
+            <maxSize>0.4 0.28</maxSize>
+            <origin>0 1</origin>
+            <path>./systems/${systemConsoleImage}</path>
+        </image>
+        <image name="controller">
+            <pos>0.717 0.45</pos>
+            <maxSize>0.32 0.32</maxSize>
+            <origin>0.5 0.5</origin>
+            <path>${systemConsoleImage}</path>
+            <zIndex>61</zIndex>
+        </image>      
+    </view>
+
+---------------------------------------------------------------    
+
+    <view name="gamelist">
+        <video name="gameVideo">
+            <pos>0.76 0.458</pos>
+            <maxSize>0.32 0.324</maxSize>
+            <origin>0.5 0.5</origin>
+            <imageType>screenshot</imageType>
+            <interpolation>nearest</interpolation>
+            <pillarboxes>false</pillarboxes>
+            <pillarboxThreshold>0.85 0.90</pillarboxThreshold>
+            <delay>1.7</delay>
+            <scrollFadeIn>true</scrollFadeIn>
+            <zIndex>150</zIndex>
+        </video>
+         
+        <image name="consolegame">
+            <pos>0.02 0.17</pos>
+            <maxSize>0.4 0.15</maxSize>
+            <origin>0 1</origin>
+            <path>${systemConsoleImage}</path>
+        </image>
+        <text name="SystemName">
+            <pos>0.76 0.161</pos>
+            <size>0.22 0.21</size>
+            <text>${system.name}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.045</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistRatingColor}</color>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>150</zIndex>
+        </text>
+
+        <text name="GameName">
+            <pos>0.305 0.88</pos>
+            <size>0.35 0.1</size>
+            <metadata>name</metadata>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.0375</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <color>${gamenamecolor}</color>
+            <zIndex>150</zIndex>
+        </text>
+        <text name="developer">
+            <size>0.14 0.02</size>
+            <fontPath>./core/fonts/Exo2-RegularCondensed.otf</fontPath>
+            <fontSize>0.0195</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <letterCase>uppercase</letterCase>
+            <zIndex>150</zIndex>
+        </text>
+        <text name="description">
+            <pos>0.592 0.7</pos>
+            <size>0.35 0.21</size>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>4.5</containerStartDelay>
+            <containerResetDelay>7</containerResetDelay>
+            <metadata>description</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1.2</lineSpacing>
+            <zIndex>150</zIndex>
+        </text>
+    
+        <text name="developer">
+            <pos>0.76 0.65</pos>
+            <size>0.40 0.1</size>
+            <origin>0.5 0.5</origin>
+            <metadata>developer</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <horizontalAlignment>center</horizontalAlignment>
+            <zIndex>150</zIndex>
+        </text>
+        <gamelistinfo name="gamelistInfo">
+            <pos>0.694 0.23</pos>
+            <size>0.2 0.042</size>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.025</fontSize>
+            <horizontalAlignment>right</horizontalAlignment>
+            <color>${gamelistInfoColor}</color>
+            <zIndex>150</zIndex>
+        </gamelistinfo>
+        <badges name="badges">
+            <pos>0.53 0.75</pos>
+            <size>0.08 0.235</size>
+            <horizontalAlignment>left</horizontalAlignment>
+            <direction>column</direction>
+            <lines>3</lines>
+            <itemsPerLine>3</itemsPerLine>
+            <slots>collection, folder, favorite, completed, kidgame, broken, controller, altemulator, manual</slots>
+            <controllerPos>0.5 0.572</controllerPos>
+            <controllerSize>0.81</controllerSize>
+            <folderLinkPos>0.54 0.64</folderLinkPos>
+            <folderLinkSize>0.31</folderLinkSize>
+            <itemMargin>-1.0 0.005</itemMargin>
+            <zIndex>150</zIndex>
+        </badges>
+    </view>
+    </aspectRatio>
+
+    <aspectRatio name="19.5:9">
+        <view name="system">
+        <carousel name="systemCarousel">
+            <pos>0.235 0.493</pos>
+            <size>1.7 0.05</size>
+            <origin>0.5 0.5</origin>
+            <type>vertical</type>
+            <maxItemCount>1</maxItemCount>
+            <itemSize>0.3 0.1</itemSize>
+            <itemScale>1</itemScale>
+            <itemTransitions>instant</itemTransitions>
+            <imageInterpolation>linear</imageInterpolation>
+            <unfocusedItemOpacity>0</unfocusedItemOpacity>
+            <color>0000FF00</color>
+            <textColor>0000FF00</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.055</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1</lineSpacing>
+            <zIndex>62</zIndex>
+        </carousel>
+        <text name="systemNames">
+            <text>${system.fullName}</text>
+            <pos>0.26 0.4931</pos>
+            <size>0.37 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>ffffff</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+        <text name="systemNameWithShadow">
+            <text>${system.fullName}</text>
+            <pos>0.2638 0.4931</pos>
+            <size>0.37 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>000000</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+         <text name="SystemDesc">
+            <pos>0.712 0.8</pos>
+            <size>0.35 0.21</size>
+            <text>${systemDescription}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+          <text name="SystemReleaseDate">
+            <pos>0.712 0.73</pos>
+            <size>0.35 0.21</size>
+            <text>${systemReleaseDateFormated}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+        <image name="systemlistbackground">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS PHONE/${Systemlistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>50</zIndex>
+        </image>
+        <image name="systemsplash">
+            <pos>0.61 0.5</pos>
+            <size>1.25 1.15</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/systemselector.png</path>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebar">
+            <pos>0.5 0.45</pos>
+            <size>0.8 0.85</size>
+            <origin>0.5 0.5</origin>
+            <path>${Systembar}</path>
+            <color>${barcolor}</color>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebarname">
+            <pos>0.5 0.45</pos>
+            <size>0.8 0.85</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/SysBluebarname.png</path>
+            <color>${gamelistRatingColor}</color>
+            <zIndex>52</zIndex>
+        </image>
+        <text name="gameCounter">
+            <pos>0.26 0.62</pos>
+            <size>1 0.056</size>
+            <origin>0.5 0.5</origin>
+            <systemdata>gamecount</systemdata>
+            <fontPath>./core/fonts/Exo2-RegularCondensed.otf</fontPath>
+            <fontSize>0.035</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <color>${systemGameCounterColor}</color>
+            <letterCase>uppercase</letterCase>
+            <zIndex>50</zIndex>
+        </text>
+        <helpsystem name="help">
+            <pos>0.37 0.955</pos>
+            <textColor>${systemHelpColor}</textColor>
+            <iconColor>${systemHelpColor}</iconColor>
+            <textColorDimmed>${systemHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${systemHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down</entries>
+        </helpsystem>              
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="gamelist">
+        <grid name="gamelistGrid">
+            <pos>0.244 0.502</pos>
+            <size>0.35 0.495</size>
+            <origin>0.5 0.5</origin>
+            <imageType>marquee</imageType>
+            <itemScale>1.118</itemScale>
+            <itemSize>-1 0.081</itemSize>
+            <itemSpacing>0.0091 0.0188</itemSpacing>
+            <fractionalRows>false</fractionalRows>
+            <itemTransitions>instant</itemTransitions>
+            <rowTransitions>instant</rowTransitions>
+            <unfocusedItemOpacity>1</unfocusedItemOpacity>
+            <backgroundImage>${selectedoff}</backgroundImage>
+            <backgroundRelativeScale>1.0</backgroundRelativeScale>
+            <backgroundColor>${selectedoffcolor}</backgroundColor>
+            <selectorImage>${selectedon}</selectorImage>
+            <selectorColor>${selectedoncolor}</selectorColor>
+            <selectorRelativeScale>1</selectorRelativeScale>
+            <selectorLayer>middle</selectorLayer>
+            <textRelativeScale>0.8</textRelativeScale>
+            <textColor>F0F0F0</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.017</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>0</lineSpacing>
+            <zIndex>150</zIndex>
+        </grid>
+
+        <image name="gamelistbg">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS PHONE/${Gamelistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>61</zIndex>
+        </image>
+        
+        <image name="Splash game">
+            <pos>0.41 0.417</pos>
+            <size>0.78 0.8</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/gamesplash.png</path>
+            <zIndex>62</zIndex>
+        </image>
+
+        <image name="blue bar">
+            <pos>0.62 0.467</pos>
+            <size>0.7 0.9</size>
+            <origin>0.5 0.5</origin>
+            <path>${Gamelistbar}</path>
+            <color>${barcolor}</color>
+            <zIndex>62</zIndex>
+        </image>
+    
+        <helpsystem name="help">
+            <pos>0.37 0.955</pos>
+            <textColor>${systemHelpColor}</textColor>
+            <iconColor>${gamelistHelpColor}</iconColor>
+            <textColorDimmed>${gamelistHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${gamelistHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down,left/right</entries>
+        </helpsystem>
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="system">
+        <image name="consolegame">
+            <pos>0.02 0.327</pos>
+            <maxSize>0.4 0.28</maxSize>
+            <origin>0 1</origin>
+            <path>./systems/${systemConsoleImage}</path>
+        </image>
+        <image name="controller">
+            <pos>0.717 0.45</pos>
+            <maxSize>0.32 0.32</maxSize>
+            <origin>0.5 0.5</origin>
+            <path>${systemConsoleImage}</path>
+            <zIndex>61</zIndex>
+        </image>      
+    </view>
+
+---------------------------------------------------------------    
+
+    <view name="gamelist">
+        <video name="gameVideo">
+            <pos>0.8 0.5</pos>
+            <maxSize>0.25 0.45</maxSize>
+            <origin>0.5 0.5</origin>
+            <imageType>screenshot</imageType>
+            <interpolation>nearest</interpolation>
+            <pillarboxes>false</pillarboxes>
+            <pillarboxThreshold>0.85 0.90</pillarboxThreshold>
+            <delay>1.7</delay>
+            <scrollFadeIn>true</scrollFadeIn>
+            <zIndex>150</zIndex>
+        </video>
+         
+        <image name="consolegame">
+            <pos>0.02 0.17</pos>
+            <maxSize>0.4 0.15</maxSize>
+            <origin>0 1</origin>
+            <path>${systemConsoleImage}</path>
+        </image>
+        <text name="SystemName">
+            <pos>0.8 0.161</pos>
+            <size>0.178 0.21</size>
+            <text>${system.name}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.045</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistRatingColor}</color>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>150</zIndex>
+        </text>
+
+        <text name="GameName">
+            <pos>0.23 0.88</pos>
+            <size>0.31 0.1</size>
+            <metadata>name</metadata>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.0375</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <color>${gamenamecolor}</color>
+            <zIndex>150</zIndex>
+        </text>
+        
+        <text name="description">
+            <pos>0.43 0.22</pos>
+            <size>0.19 0.7</size>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>4.5</containerStartDelay>
+            <containerResetDelay>7</containerResetDelay>
+            <metadata>description</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1.2</lineSpacing>
+            <zIndex>150</zIndex>
+        </text>
+    
+        <text name="developer">
+            <pos>0.8 0.78</pos>
+            <size>0.28 0.06</size>
+            <origin>0.5 0.5</origin>
+            <metadata>developer</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <horizontalAlignment>center</horizontalAlignment>
+            <zIndex>150</zIndex>
+        </text>
+        <gamelistinfo name="gamelistInfo">
+            <pos>0.735 0.23</pos>
+            <size>0.2 0.042</size>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.025</fontSize>
+            <horizontalAlignment>right</horizontalAlignment>
+            <color>${gamelistInfoColor}</color>
+            <zIndex>150</zIndex>
+        </gamelistinfo>
+        <badges name="badges">
+            <pos>0.76 0.82</pos>
+            <size>0.08 0.235</size>
+            <horizontalAlignment>left</horizontalAlignment>
+            <direction>row</direction>
+            <lines>3</lines>
+            <itemsPerLine>3</itemsPerLine>
+            <slots>collection, folder, favorite, completed, kidgame, broken, controller, altemulator, manual</slots>
+            <controllerPos>0.5 0.572</controllerPos>
+            <controllerSize>0.81</controllerSize>
+            <folderLinkPos>0.54 0.64</folderLinkPos>
+            <folderLinkSize>0.31</folderLinkSize>
+            <itemMargin>-1.0 0.005</itemMargin>
+            <zIndex>150</zIndex>
+        </badges>
+    </view>
+    </aspectRatio>
+
+    <aspectRatio name="16:10">
+        <view name="system">
+        <carousel name="systemCarousel">
+            <pos>0.235 0.493</pos>
+            <size>1.7 0.05</size>
+            <origin>0.5 0.5</origin>
+            <type>vertical</type>
+            <maxItemCount>1</maxItemCount>
+            <itemSize>0.3 0.1</itemSize>
+            <itemScale>1</itemScale>
+            <itemTransitions>instant</itemTransitions>
+            <imageInterpolation>linear</imageInterpolation>
+            <unfocusedItemOpacity>0</unfocusedItemOpacity>
+            <color>0000FF00</color>
+            <textColor>0000FF00</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.055</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1</lineSpacing>
+            <zIndex>62</zIndex>
+        </carousel>
+
+        <systemstatus name="status">
+            <color>${gamelistDefaultTextColor}</color>
+        </systemstatus>
+
+        <text name="systemNames">
+            <text>${system.fullName}</text>
+            <pos>0.226 0.4931</pos>
+            <size>0.3 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>ffffff</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+
+        <text name="systemNameWithShadow">
+            <text>${system.fullName}</text>
+            <pos>0.23 0.4931</pos>
+            <size>0.3 0.05</size>
+            <origin>0.5 0.5</origin>
+            <horizontalAlignment>center</horizontalAlignment>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.05</fontSize>
+            <color>000000</color>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>60</zIndex>
+        </text>
+         <text name="SystemDesc">
+            <pos>0.712 0.8</pos>
+            <size>0.35 0.21</size>
+            <text>${systemDescription}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+          <text name="SystemReleaseDate">
+            <pos>0.712 0.73</pos>
+            <size>0.35 0.21</size>
+            <text>${systemReleaseDateFormated}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0275</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistDefaultTextColor}</color>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>2.5</containerStartDelay>
+            <containerResetDelay>4</containerResetDelay>
+            <zIndex>150</zIndex>
+        </text>
+        <image name="systemlistbackground">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/${Systemlistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>50</zIndex>
+        </image>
+        <image name="systemsplash">
+            <pos>0.5 0.5</pos>
+            <size>1 0.9</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/systemselector.png</path>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebar">
+            <pos>0.45 0.5</pos>
+            <size>1 0.9</size>
+            <origin>0.5 0.5</origin>
+            <path>${Systembar}</path>
+            <color>${barcolor}</color>
+            <zIndex>51</zIndex>
+        </image>
+        <image name="systembluebarname">
+            <pos>0.45 0.5</pos>
+            <size>1 0.9</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/SysBluebarname.png</path>
+            <color>${gamelistRatingColor}</color>
+            <zIndex>52</zIndex>
+        </image>
+        <text name="gameCounter">
+            <pos>0.22 0.62</pos>
+            <size>1 0.056</size>
+            <origin>0.5 0.5</origin>
+            <systemdata>gamecount</systemdata>
+            <fontPath>./core/fonts/Exo2-RegularCondensed.otf</fontPath>
+            <fontSize>0.035</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <color>${systemGameCounterColor}</color>
+            <letterCase>uppercase</letterCase>
+            <zIndex>50</zIndex>
+        </text>
+        <helpsystem name="help">
+            <pos>0.012 0.955</pos>
+            <textColor>${systemHelpColor}</textColor>
+            <iconColor>${systemHelpColor}</iconColor>
+            <textColorDimmed>${systemHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${systemHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down</entries>
+        </helpsystem>              
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="gamelist">
+        <grid name="gamelistGrid">
+            <pos>0.305 0.532</pos>
+            <size>0.5 0.45</size>
+            <origin>0.5 0.5</origin>
+            <imageType>marquee</imageType>
+            <itemScale>1.118</itemScale>
+            <itemSize>-1 0.081</itemSize>
+            <itemSpacing>0.0059 0.0187</itemSpacing>
+            <fractionalRows>false</fractionalRows>
+            <itemTransitions>instant</itemTransitions>
+            <rowTransitions>instant</rowTransitions>
+            <unfocusedItemOpacity>1</unfocusedItemOpacity>
+            <backgroundImage>${selectedoff}</backgroundImage>
+            <backgroundRelativeScale>1.0</backgroundRelativeScale>
+            <backgroundColor>${selectedoffcolor}</backgroundColor>
+            <selectorImage>${selectedon}</selectorImage>
+            <selectorColor>${selectedoncolor}</selectorColor>
+            <selectorRelativeScale>1.0 0.2</selectorRelativeScale>
+            <selectorLayer>middle</selectorLayer>
+            <textRelativeScale>0.8</textRelativeScale>
+            <textColor>F0F0F0</textColor>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.032</fontSize>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>0</lineSpacing>
+            <zIndex>150</zIndex>
+        </grid>
+
+        <image name="gamelistbg">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/${Gamelistbg}</path>
+            <color>${BGcolor}</color>
+            <zIndex>61</zIndex>
+        </image>
+        
+        <image name="Splash game">
+            <pos>0.5 0.5</pos>
+            <size>1 0.9</size>
+            <origin>0.5 0.5</origin>
+            <path>./ASSETS/gamesplash.png</path>
+            <zIndex>62</zIndex>
+        </image>
+
+        <image name="blue bar">
+            <pos>0.5 0.5</pos>
+            <size>1 1</size>
+            <origin>0.5 0.5</origin>
+            <path>${Gamelistbar}</path>
+            <color>${barcolor}</color>
+            <zIndex>62</zIndex>
+        </image>
+    
+        <helpsystem name="help">
+            <pos>0.012 0.955</pos>
+            <textColor>${gamelistHelpColor}</textColor>
+            <iconColor>${gamelistHelpColor}</iconColor>
+            <textColorDimmed>${gamelistHelpColorDimmed}</textColorDimmed>
+            <iconColorDimmed>${gamelistHelpColorDimmed}</iconColorDimmed>
+            <fontSize>0.035</fontSize>
+            <entries>start,b,a,up/down,left/right</entries>
+        </helpsystem>
+
+        <systemstatus name="status">
+            <color>${gamelistDefaultTextColor}</color>
+        </systemstatus>
+    </view>
+
+    <view name="system">
+        <image name="consolegame">
+            <pos>0.02 0.327</pos>
+            <maxSize>0.4 0.28</maxSize>
+            <origin>0 1</origin>
+            <path>./systems/${systemConsoleImage}</path>
+        </image>
+        <image name="controller">
+            <pos>0.717 0.45</pos>
+            <maxSize>0.32 0.32</maxSize>
+            <origin>0.5 0.5</origin>
+            <path>${systemConsoleImage}</path>
+            <zIndex>61</zIndex>
+        </image>     
+    </view>
+
+---------------------------------------------------------------
+
+    <view name="gamelist">
+        <video name="gameVideo">
+            <pos>0.76 0.458</pos>
+            <maxSize>0.32 0.324</maxSize>
+            <origin>0.5 0.5</origin>
+            <imageType>screenshot</imageType>
+            <interpolation>nearest</interpolation>
+            <pillarboxes>false</pillarboxes>
+            <pillarboxThreshold>0.85 0.90</pillarboxThreshold>
+            <delay>1.7</delay>
+            <scrollFadeIn>true</scrollFadeIn>
+            <zIndex>150</zIndex>
+        </video>
+        <image name="consolegame">
+            <pos>0.02 0.17</pos>
+            <maxSize>0.4 0.15</maxSize>
+            <origin>0 1</origin>
+            <path>${systemConsoleImage}</path>
+        </image>
+        <text name="SystemName">
+            <pos>0.76 0.161</pos>
+            <size>0.22 0.21</size>
+            <text>${system.name}</text>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.0545</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <color>${gamelistRatingColor}</color>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <zIndex>150</zIndex>
+        </text>
+
+        <text name="GameName">
+            <pos>0.277 0.844</pos>
+            <size>0.41 0.1</size>
+            <metadata>name</metadata>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.0375</fontSize>
+            <horizontalAlignment>center</horizontalAlignment>
+            <letterCase>uppercase</letterCase>
+            <container>true</container>
+            <containerType>horizontal</containerType>
+            <color>${gamenamecolor}</color>
+            <zIndex>150</zIndex>
+        </text>
+        <text name="developer">
+            <size>0.14 0.02</size>
+            <fontPath>./core/fonts/Exo2-RegularCondensed.otf</fontPath>
+            <fontSize>0.0195</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <letterCase>uppercase</letterCase>
+            <zIndex>150</zIndex>
+        </text>
+        <text name="description">
+            <pos>0.592 0.7</pos>
+            <size>0.35 0.21</size>
+            <container>true</container>
+            <containerVerticalSnap>true</containerVerticalSnap>
+            <containerScrollSpeed>1</containerScrollSpeed>
+            <containerStartDelay>4.5</containerStartDelay>
+            <containerResetDelay>7</containerResetDelay>
+            <metadata>description</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <letterCase>uppercase</letterCase>
+            <lineSpacing>1.2</lineSpacing>
+            <zIndex>150</zIndex>
+        </text>
+    
+        <text name="developer">
+            <pos>0.76 0.65</pos>
+            <size>0.40 0.1</size>
+            <origin>0.5 0.5</origin>
+            <metadata>developer</metadata>
+            <fontPath>./core/fonts/Exo2-SemiBoldCondensed.otf</fontPath>
+            <fontSize>0.0235</fontSize>
+            <color>${gamelistDefaultTextColor}</color>
+            <horizontalAlignment>center</horizontalAlignment>
+            <zIndex>150</zIndex>
+        </text>
+        <gamelistinfo name="gamelistInfo">
+            <pos>0.694 0.23</pos>
+            <size>0.2 0.042</size>
+            <origin>0.5 0.5</origin>
+            <fontPath>./core/fonts/PS.otf</fontPath>
+            <fontSize>0.025</fontSize>
+            <horizontalAlignment>right</horizontalAlignment>
+            <color>${gamelistInfoColor}</color>
+            <zIndex>150</zIndex>
+        </gamelistinfo>
+        <badges name="badges">
+            <pos>0.9445 0.38</pos>
+            <size>0.05 0.235</size>
+            <horizontalAlignment>left</horizontalAlignment>
+            <direction>column</direction>
+            <lines>3</lines>
+            <itemsPerLine>3</itemsPerLine>
+            <slots>collection, folder, favorite, completed, kidgame, broken, controller, altemulator, manual</slots>
+            <controllerPos>0.5 0.572</controllerPos>
+            <controllerSize>0.81</controllerSize>
+            <folderLinkPos>0.54 0.64</folderLinkPos>
+            <folderLinkSize>0.31</folderLinkSize>
+            <itemMargin>-1.0 0.005</itemMargin>
+            <zIndex>150</zIndex>
+        </badges>
+    </view>
+    </aspectRatio>        
+    
+</theme>

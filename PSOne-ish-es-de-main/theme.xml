@@ -1,0 +1,10 @@
+<!--
+    Theme by ShaolinSnake96
+-->
+
+<theme>
+    <variant name="variant01">
+        <include>./variant_01.xml</include>
+    </variant>
+
+</theme>
